@@ -1,0 +1,158 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/colors";
+
+.flight-card {
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  border: 1px solid $cyan;
+  border-radius: 0 0 0 $base-radius;
+  margin-bottom: 20px;
+
+  &__info {
+    border-right: 1px solid $cyan;
+
+    @media (max-width: map-get($breakpoints, "md")) {
+      border-right: none;
+      border-top: 1px solid $cyan;
+    }
+    &__data {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 10px 20px 10px;
+
+      &__airline {
+        display: flex;
+        align-items: center;
+
+        &-logo {
+          width: 115px;
+          margin-right: 20px;
+        }
+
+        &-info h3 {
+          font-size: map-get($fontSizes, "sm");
+          font-weight: map-get($fontWeights, "medium");
+          margin-bottom: 10px;
+        }
+
+        &-info p {
+          font-size: map-get($fontSizes, "sm");
+          color: $gray;
+        }
+      }
+
+      &__details {
+        min-width: 190px;
+
+        &__times {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          font-size: map-get($fontSizes, "sm");
+
+          &-duration {
+            color: $gray;
+            font-size: map-get($fontSizes, "xs");
+
+            img {
+              margin-right: 2.27px;
+            }
+          }
+        }
+
+        &__time-line {
+          display: flex;
+          align-items: center;
+          margin-inline: 0.7rem;
+
+          &-circle {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+            border: 1px solid $gray;
+          }
+
+          &-plane {
+            margin-inline: 5px;
+          }
+
+          &-line {
+            height: 1px;
+            flex-grow: 2;
+            background-color: $gray;
+          }
+        }
+
+        &__route {
+          display: flex;
+          justify-content: space-between;
+          margin-inline: 0.4rem;
+          font-size: map-get($fontSizes, "sm");
+
+          &-stop {
+            color: $gray;
+            font-size: map-get($fontSizes, "xs");
+          }
+        }
+      }
+    }
+
+    &__button {
+      align-items: center;
+      background-color: $cyan;
+      color: $white;
+      border: 0;
+      border-radius: 0 0 0 $base-radius - 1;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: map-get($fontSizes, "md");
+      font-weight: map-get($fontWeights, "bold");
+      justify-content: center;
+
+      line-height: 20px;
+      min-height: 40px;
+      width: 100%;
+      overflow: hidden;
+      text-align: center;
+      touch-action: manipulation;
+      transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      vertical-align: middle;
+    }
+
+    &__button:hover,
+    &__button:focus {
+      background-color: $cyan-dark;
+      color: #ffffff;
+    }
+
+    &__button:active {
+      background: $gray;
+      color: rgb(255, 255, 255, 0.7);
+    }
+
+    &__button:disabled {
+      cursor: not-allowed;
+      background: rgba(0, 0, 0, 0.08);
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__price {
+    flex-grow: 2;
+    text-align: center;
+    font-size: 1.2rem;
+    color: $black;
+
+    strong {
+      font-size: 1.5rem;
+    }
+
+    p:last-child {
+      font-size: 0.8rem;
+      color: $gray;
+    }
+  }
+}
