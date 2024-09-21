@@ -1,6 +1,8 @@
-<section class="example-section">
-  <mat-checkbox>Check me!</mat-checkbox>
-  <mat-checkbox>Check me!</mat-checkbox>
-  <mat-checkbox>Check me!</mat-checkbox>
-  <mat-checkbox>Check me!</mat-checkbox>
+<section>
+  <mat-checkbox [(ngModel)]="selectedValues[0]" (change)="onCheckboxChange(0, $event.checked)">
+    Direct
+  </mat-checkbox>
+  <mat-checkbox [(ngModel)]="selectedValues[1]" (change)="onCheckboxChange(1, $event.checked)">
+    1 Stop
+  </mat-checkbox>
 </section>

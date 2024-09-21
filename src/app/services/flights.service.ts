@@ -51,28 +51,32 @@ export class FlightsService {
 
   filtering() {
     this.filteredFlights = this.flights.filter((flight) => {
-      let passedTheFilter = true;
-
       if (
-        !(
-          flight.totalPrice >= this.filteringElements.minValue &&
-          flight.totalPrice <= this.filteringElements.maxValue
-        )
+        flight.totalPrice < this.filteringElements.minValue ||
+        flight.totalPrice > this.filteringElements.maxValue
       ) {
-        passedTheFilter = false;
+        return false;
       }
 
-      // if (
-      //   !(
-      //     flight.allJourney.flights[0].stopsNum === this.filteringElements.stops
-      //   )
-      // ) {
-      //   passedTheFilter = false;
-      // }
+      console.log(
+        this.filteringElements.stops,
+        flight.allJourney.flights[0].stopsNum
+      );
 
-      if (this.filteringElements.isRefundable !== 'both') {
-        if (!(flight.isRefundable === this.filteringElements.isRefundable))
-          passedTheFilter = false;
+      if (
+        this.filteringElements.stops.length &&
+        !this.filteringElements.stops.includes(
+          flight.allJourney.flights[0].stopsNum
+        )
+      ) {
+        return false;
+      }
+
+      if (
+        this.filteringElements.isRefundable !== 'both' &&
+        flight.isRefundable === this.filteringElements.isRefundable
+      ) {
+        return false;
       }
 
       // if (
@@ -81,10 +85,10 @@ export class FlightsService {
       //     this.filteringElements.airline
       //   )
       // ) {
-      //   passedTheFilter = false;
+      //   return false;
       // }
 
-      return passedTheFilter;
+      return true;
     });
 
     console.log(this.filteredFlights.length);
@@ -99,6 +103,12 @@ export class FlightsService {
 
   filterFlightsBasedOnRefundability(value: true | false | 'both') {
     this.filteringElements.isRefundable = value;
+
+    this.filtering();
+  }
+
+  filterFlightsBasedOnStops(value: number[]) {
+    this.filteringElements.stops = value;
 
     this.filtering();
   }
