@@ -2,7 +2,9 @@
 @import "../../../../sass/colors";
 
 .navbar {
+  position: relative;
   padding: 12.07px;
+  z-index: 100;
 
   display: flex;
   justify-content: center;

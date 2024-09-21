@@ -1,9 +1,18 @@
-<div class="container wrapper">
-  <app-flight-card />
-  <app-flight-card />
-  <app-flight-card />
-  <app-flight-card />
-  <app-flight-card />
-  <app-flight-card />
-  <app-flight-card />
-</div>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="isSidenavOpened" mode="over" position="start">
+    <app-filter />
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <img src="../../../assets/svgs/filter-icon.svg" title="Filter Icon" class="filter-icon" (click)="onClickFilter()" />
+    <div class="container wrapper">
+      <app-flight-card />
+      <app-flight-card />
+      <app-flight-card />
+      <app-flight-card />
+      <app-flight-card />
+      <app-flight-card />
+      <app-flight-card />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

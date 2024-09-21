@@ -1,3 +1,32 @@
+@import "../../../sass/variables";
+@import "../../../sass/colors";
+
 .wrapper {
-  margin-top: 40px;
+  margin-top: 50px;
+}
+
+.filter-icon {
+  position: fixed;
+  cursor: pointer;
+  background-color: $gray;
+  padding: 10px;
+  border-radius: 0 0 $base-radius;
+  transition: all 0.5s;
+}
+
+.filter-icon:hover {
+  background-color: $cyan-dark;
+}
+
+mat-sidenav-container {
+  mat-sidenav,
+  mat-sidenav-content {
+    padding: 16px;
+  }
+
+  mat-sidenav {
+    position: fixed;
+    width: 300px;
+    background-color: $gray;
+  }
 }

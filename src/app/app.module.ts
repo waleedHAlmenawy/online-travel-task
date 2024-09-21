@@ -9,6 +9,9 @@ import { SelectedFlightComponent } from './bonus/selected-flight/selected-flight
 import { FilterComponent } from './components/flight-result/filter/filter.component';
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     SelectedFlightComponent,
     FilterComponent,
     FlightCardComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
