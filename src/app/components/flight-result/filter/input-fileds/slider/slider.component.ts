@@ -22,9 +22,8 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.flightsService.onFlightsLoaded().subscribe(() => {
-      this.maxValue =
-        +this.flightsService.allPrices.slice(-1)[0].toFixed(2) + 1000;
-      this.minValue = +this.flightsService.allPrices[0].toFixed(2) - 1000;
+      this.maxValue = this.flightsService.filteringElements.maxValue;
+      this.minValue = this.flightsService.filteringElements.minValue;
 
       this.max = this.maxValue;
       this.min = this.minValue;

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { initialFilter } from 'src/constants/filter.initial';
 import { IAirItinerary } from 'src/models/airItinerary.model';
 import { IData } from 'src/models/data.model';
+import { IFilter } from 'src/models/filter.model';
 import { calculateTotalPrice } from 'src/utils/calcTotalPrice';
 import { bubbleSort } from 'src/utils/sorting';
 
@@ -12,6 +14,8 @@ import { bubbleSort } from 'src/utils/sorting';
 export class FlightsService {
   flights: IAirItinerary[] = [];
   filteredFlights: IAirItinerary[] = [];
+  filteringElements: IFilter = initialFilter;
+
   allPrices: number[] = [];
   jsonFlightsUrl = '../../assets/response.json';
 
@@ -31,6 +35,9 @@ export class FlightsService {
         });
 
         this.allPrices = bubbleSort(this.allPrices);
+        this.filteringElements.maxValue =
+          +this.allPrices.slice(-1)[0].toFixed(2) + 1000;
+        this.filteringElements.minValue = +this.allPrices[0].toFixed(2) - 1000;
         this.filteredFlights = this.flights;
 
         this.flightsLoaded.next();
@@ -42,9 +49,57 @@ export class FlightsService {
     return this.flightsLoaded.asObservable();
   }
 
-  filterFlightsBasedOnPrice(max: number, min: number) {
+  filtering() {
     this.filteredFlights = this.flights.filter((flight) => {
-      return flight.totalPrice >= min && flight.totalPrice <= max;
+      let passedTheFilter = true;
+
+      if (
+        !(
+          flight.totalPrice >= this.filteringElements.minValue &&
+          flight.totalPrice <= this.filteringElements.maxValue
+        )
+      ) {
+        passedTheFilter = false;
+      }
+
+      // if (
+      //   !(
+      //     flight.allJourney.flights[0].stopsNum === this.filteringElements.stops
+      //   )
+      // ) {
+      //   passedTheFilter = false;
+      // }
+
+      if (this.filteringElements.isRefundable !== 'both') {
+        if (!(flight.isRefundable === this.filteringElements.isRefundable))
+          passedTheFilter = false;
+      }
+
+      // if (
+      //   !(
+      //     flight.allJourney.flights[0].flightAirline.airlineName ===
+      //     this.filteringElements.airline
+      //   )
+      // ) {
+      //   passedTheFilter = false;
+      // }
+
+      return passedTheFilter;
     });
+
+    console.log(this.filteredFlights.length);
+  }
+
+  filterFlightsBasedOnPrice(max: number, min: number) {
+    this.filteringElements.maxValue = max;
+    this.filteringElements.minValue = min;
+
+    this.filtering();
+  }
+
+  filterFlightsBasedOnRefundability(value: true | false | 'both') {
+    this.filteringElements.isRefundable = value;
+
+    this.filtering();
   }
 }
