@@ -16,4 +16,5 @@ export interface IAirItinerary {
   allJourney: IAllJourney;
   baggageInformation: IBaggageInformation[];
   passengerFareBreakDownDTOs: IPassengerFareBreakDownDTO[];
+  totalPrice: number;
 }

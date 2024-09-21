@@ -6,13 +6,7 @@
   <mat-sidenav-content>
     <img src="../../../assets/svgs/filter-icon.svg" title="Filter Icon" class="filter-icon" (click)="onClickFilter()" />
     <div class="container wrapper">
-      <app-flight-card />
-      <app-flight-card />
-      <app-flight-card />
-      <app-flight-card />
-      <app-flight-card />
-      <app-flight-card />
-      <app-flight-card />
+      <app-flight-card *ngFor="let flight of getFlights();" [flight]="flight" />
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

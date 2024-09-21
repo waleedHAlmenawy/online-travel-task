@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +26,8 @@ import { DropDownComponent } from './components/flight-result/filter/input-filed
 import { SliderComponent } from './components/flight-result/filter/input-fileds/slider/slider.component';
 import { CheckBoxesComponent } from './components/flight-result/filter/input-fileds/check-boxes/check-boxes.component';
 import { RadioButtonsComponent } from './components/flight-result/filter/input-fileds/radio-buttons/radio-buttons.component';
+import { TimeFormatPipe } from './pipes/time-format.pipe';
+import { DurationPipe } from './pipes/duration.pipe';
 
 const materialModules = [
   MatSidenavModule,
@@ -52,6 +55,8 @@ const materialModules = [
     SliderComponent,
     CheckBoxesComponent,
     RadioButtonsComponent,
+    TimeFormatPipe,
+    DurationPipe,
   ],
   imports: [
     materialModules,
@@ -59,6 +64,7 @@ const materialModules = [
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

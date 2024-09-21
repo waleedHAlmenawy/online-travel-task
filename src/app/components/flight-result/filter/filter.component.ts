@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FlightsService } from 'src/app/services/flights.service';
 import { IDropDown } from 'src/models/dropDown.model';
 
 @Component({
@@ -15,4 +16,6 @@ export class FilterComponent {
     label: 'To',
     options: ['Cairo', 'Kuwait', 'Qatar'],
   };
+
+  constructor(private flightsService: FlightsService) {}
 }
