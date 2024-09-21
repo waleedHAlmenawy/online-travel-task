@@ -1,0 +1,11 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/colors";
+
+.navbar {
+  padding: 12.07px;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: map-get($colors, "main");
+}

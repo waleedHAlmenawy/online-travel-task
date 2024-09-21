@@ -1,0 +1,63 @@
+/* theme colors */
+
+$gray: #484847;
+$cyan: #019d97;
+$black: #1c1c1c;
+$white: #fcfcfc;
+
+/* typography */
+
+$fontSizes: (
+  "xs": 8px,
+  "sm": 12px,
+  "md": 16px,
+  "lg": 20px,
+  "xl": 24px,
+  "xxl": 28px,
+);
+
+$fontWeights: (
+  "thin": 100,
+  "extra-light": 200,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "semi-bold": 600,
+  "bold": 700,
+);
+
+/* base border radius*/
+
+$base-radius-small: 5px;
+$base-radius: 20px;
+$base-radius-large: 30px;
+
+/* breakpoints */
+
+$breakpoints: (
+  "xs": 0,
+  "sm": 480px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1200px,
+);
+
+/* grid */
+
+$grid-columns: 12;
+$grid-gaps: (
+  "0": 0,
+  "1": 10px,
+  "2": 20px,
+  "3": 30px,
+  "4": 40px,
+);
+
+$layout-values: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "between": space-between,
+  "around": space-around,
+  "evenly": space-evenly,
+);
