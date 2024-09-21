@@ -1,0 +1,46 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/colors";
+
+@mixin title-style() {
+  font-weight: map-get($fontWeights, "medium");
+  font-size: map-get($fontSizes, "lg");
+}
+
+span {
+  color: $cyan;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+  color: $white !important;
+  &__dest {
+    &-title {
+      @include title-style();
+    }
+
+    &-content {
+      margin-top: 20px;
+    }
+  }
+
+  &__price {
+    &-title {
+      @include title-style();
+    }
+  }
+
+  &__airlines {
+    &-title {
+      @include title-style();
+    }
+  }
+
+  &__refund {
+    &-title {
+      @include title-style();
+    }
+  }
+}

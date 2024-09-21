@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./flight-result.component.scss'],
 })
 export class FlightResultComponent {
-  isSidenavOpened = false;
+  isSidenavOpened = true;
 
   onClickFilter() {
     this.isSidenavOpened = !this.isSidenavOpened;

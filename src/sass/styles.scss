@@ -15,6 +15,79 @@
 /* utilities */
 @import "./utilities";
 
+@import "../../node_modules/@angular/material/theming";
+
+$primary-palette: (
+  50: #eeeeee,
+  100: #d6d6d6,
+  200: #b3b3b3,
+  300: #919191,
+  400: #707070,
+  500: $gray,
+
+  600: #3f3f3f,
+  700: #363636,
+  800: #2d2d2d,
+  900: $black,
+
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+  ),
+);
+
+$accent-palette: (
+  50: #e0f7f7,
+  100: #b3ecec,
+  200: #80dfdf,
+  300: #4dd2d2,
+  400: #26c7c7,
+  500: $cyan,
+
+  600: #019088,
+  700: $cyan-dark,
+  // Darker cyan
+  800: #00635f,
+  900: #003c37,
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $white,
+
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+  ),
+);
+
+$warn-palette: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme(
+  (
+    color: (
+      primary: mat-palette($primary-palette),
+      accent: mat-palette($accent-palette),
+      warn: $warn-palette,
+    ),
+    typography: mat-typography-config(),
+    background: $gray,
+  )
+);
+
+@include angular-material-theme($custom-theme);
+
 * {
   color: inherit;
   margin: 0;
@@ -30,4 +103,13 @@ a {
 
 img {
   max-width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

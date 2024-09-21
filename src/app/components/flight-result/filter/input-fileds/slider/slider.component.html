@@ -1,0 +1,9 @@
+<div class="values">
+  <p>Min: {{minValue}}</p>
+  <p>Max: {{maxValue}}</p>
+</div>
+
+<mat-slider min="200" max="500" color="accent" (change)="onChange()">
+  <input [(value)]="minValue" matSliderStartThumb title="min" min="500">
+  <input [(value)]="maxValue" matSliderEndThumb title="max" max="100">
+</mat-slider>
