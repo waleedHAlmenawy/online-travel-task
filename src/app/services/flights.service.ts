@@ -38,9 +38,8 @@ export class FlightsService {
         });
 
         this.allPrices = bubbleSort(this.allPrices);
-        this.filteringElements.maxValue =
-          +this.allPrices.slice(-1)[0].toFixed(2) + 1000;
-        this.filteringElements.minValue = +this.allPrices[0].toFixed(2) - 1000;
+        this.resetMinAndMaxValues();
+
         this.filteredFlights = this.flights;
 
         this.flightsLoaded.next();
@@ -58,6 +57,12 @@ export class FlightsService {
 
   onFlightsLoaded(): Observable<void> {
     return this.flightsLoaded.asObservable();
+  }
+
+  resetMinAndMaxValues() {
+    this.filteringElements.maxValue =
+      +this.allPrices.slice(-1)[0].toFixed(0) + 1000;
+    this.filteringElements.minValue = +this.allPrices[0].toFixed(0) - 1000;
   }
 
   filtering() {
@@ -96,7 +101,7 @@ export class FlightsService {
       return true;
     });
 
-    console.log(this.filteredFlights.length);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   filterFlightsBasedOnAirline(airline: string | null) {

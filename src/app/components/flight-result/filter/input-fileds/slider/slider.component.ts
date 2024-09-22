@@ -25,17 +25,26 @@ export class SliderComponent implements OnInit, OnDestroy {
   constructor(private flightsService: FlightsService) {}
 
   ngOnInit(): void {
-    const flightLoadedSub = this.flightsService
-      .onFlightsLoaded()
-      .subscribe(() => {
-        this.maxValue = this.flightsService.filteringElements.maxValue;
-        this.minValue = this.flightsService.filteringElements.minValue;
+    if (this.flightsService.allPrices.length) {
+      this.flightsService.resetMinAndMaxValues();
+      this.getValues();
+    } else {
+      const flightLoadedSub = this.flightsService
+        .onFlightsLoaded()
+        .subscribe(() => {
+          this.getValues();
+        });
 
-        this.max = this.maxValue;
-        this.min = this.minValue;
-      });
+      this.subscribtions.add(flightLoadedSub);
+    }
+  }
 
-    this.subscribtions.add(flightLoadedSub);
+  getValues() {
+    this.maxValue = this.flightsService.filteringElements.maxValue;
+    this.minValue = this.flightsService.filteringElements.minValue;
+
+    this.max = this.maxValue;
+    this.min = this.minValue;
   }
 
   onChange() {

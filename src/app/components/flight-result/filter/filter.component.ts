@@ -7,15 +7,4 @@ import { IDropDown } from 'src/models/dropDown.model';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent {
-  from: IDropDown = {
-    label: 'From',
-    options: ['Cairo', 'Kuwait', 'Qatar'],
-  };
-  to: IDropDown = {
-    label: 'To',
-    options: ['Cairo', 'Kuwait', 'Qatar'],
-  };
-
-  constructor(private flightsService: FlightsService) {}
-}
+export class FilterComponent {}

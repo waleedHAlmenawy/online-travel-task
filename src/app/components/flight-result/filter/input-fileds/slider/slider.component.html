@@ -1,9 +1,9 @@
 <div class="values">
-  <p>EGP {{minValue}}</p>
-  <p>EGP {{maxValue}}</p>
+  <p>EGP <strong>{{minValue}}</strong></p>
+  <p>EGP <strong>{{maxValue}}</strong></p>
 </div>
 
-<mat-slider [min]="min" [max]="max" color="accent" (change)="onChange()" step="100">
+<mat-slider [min]="min" [max]="max" color="accent" (change)="onChange()" step="10000">
   <input [(value)]="minValue" matSliderStartThumb title="min">
   <input [(value)]="maxValue" matSliderEndThumb title="max">
 </mat-slider>
