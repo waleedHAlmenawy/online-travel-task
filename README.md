@@ -1,6 +1,6 @@
 # Angular Task - RoundPixel
 
-![RoundPixel Logo](./src/assets/svgs/logo.svg)
+<img src="./src/assets/svgs/logo.svg" alt="RoundPixel Logo" style="width:100%; height:auto;">
 
 ## Project Description
 
