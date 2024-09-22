@@ -1,0 +1,14 @@
+@import "../../../../../../sass/variables";
+@import "../../../../../../sass/colors";
+
+.drop-menu {
+  &-item {
+    padding: 5px;
+    border-radius: $base-radius-small;
+    cursor: pointer;
+  }
+  &-item:hover {
+    background-color: $gray;
+    color: $white;
+  }
+}

@@ -1,8 +1,0 @@
-<p>{{dropDownData.label}}:</p>
-
-<label>
-  <select [title]="dropDownData.label" title="menu">
-    <option [value]="null" selected>None</option>
-    <option *ngFor="let option of dropDownData.options;" [value]="option">{{option}}</option>
-  </select>
-</label>

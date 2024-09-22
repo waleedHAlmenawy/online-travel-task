@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>Airlines</mat-label>
+  <input matInput placeholder="Ex. Nile Air" (input)="onChange($event)" (keypress)="preventArabic($event)"
+    [value]="inputValue">
+</mat-form-field>
+
+<div *ngIf="airlines.length" class="drop-menu">
+  <div class="drop-menu-item" *ngFor="let airline of airlines" (click)="onSelect(airline)">{{airline}}</div>
+</div>

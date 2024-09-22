@@ -3,5 +3,5 @@ export interface IFilter {
   minValue: number;
   isRefundable: false | true | 'both';
   stops: number[];
-  airline: null;
+  airline: string | null;
 }

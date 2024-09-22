@@ -1,7 +1,7 @@
 <aside class="filter">
   <h2>Filter <span>B</span>y:</h2>
 
-  <mat-expansion-panel class="filter__airlines">
+  <mat-expansion-panel class="filter__airlines" expanded>
     <mat-expansion-panel-header>
       <mat-panel-title class="filter__airlines-title">
         Airlines
@@ -9,19 +9,7 @@
     </mat-expansion-panel-header>
 
     <div class="filter__airlines-content">
-      <app-check-boxes />
-    </div>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel class="filter__airlines">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="filter__airlines-title">
-        Stops
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <div class="filter__airlines-content">
-      <app-check-boxes />
+      <app-autocomplete />
     </div>
   </mat-expansion-panel>
 
@@ -34,6 +22,18 @@
 
     <div class="filter__price-content">
       <app-slider />
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="filter__airlines">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="filter__airlines-title">
+        Stops
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="filter__airlines-content">
+      <app-check-boxes />
     </div>
   </mat-expansion-panel>
 

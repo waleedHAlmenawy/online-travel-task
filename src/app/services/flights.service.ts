@@ -17,6 +17,8 @@ export class FlightsService {
   filteringElements: IFilter = initialFilter;
 
   allPrices: number[] = [];
+  airlines: string[] = [];
+
   jsonFlightsUrl = '../../assets/response.json';
 
   private flightsLoaded = new Subject<void>();
@@ -27,6 +29,7 @@ export class FlightsService {
     this.http.get<IData>(this.jsonFlightsUrl).subscribe({
       next: (data) => {
         this.flights = data.airItineraries;
+        this.airlines = data.airlines;
       },
       complete: () => {
         this.flights.forEach((flight) => {
@@ -58,11 +61,6 @@ export class FlightsService {
         return false;
       }
 
-      console.log(
-        this.filteringElements.stops,
-        flight.allJourney.flights[0].stopsNum
-      );
-
       if (
         this.filteringElements.stops.length &&
         !this.filteringElements.stops.includes(
@@ -79,19 +77,24 @@ export class FlightsService {
         return false;
       }
 
-      // if (
-      //   !(
-      //     flight.allJourney.flights[0].flightAirline.airlineName ===
-      //     this.filteringElements.airline
-      //   )
-      // ) {
-      //   return false;
-      // }
+      if (
+        this.filteringElements.airline !== null &&
+        flight.allJourney.flights[0].flightAirline.airlineName !==
+          this.filteringElements.airline
+      ) {
+        return false;
+      }
 
       return true;
     });
 
     console.log(this.filteredFlights.length);
+  }
+
+  filterFlightsBasedOnAirline(airline: string | null) {
+    this.filteringElements.airline = airline;
+
+    this.filtering();
   }
 
   filterFlightsBasedOnPrice(max: number, min: number) {
@@ -101,14 +104,14 @@ export class FlightsService {
     this.filtering();
   }
 
-  filterFlightsBasedOnRefundability(value: true | false | 'both') {
-    this.filteringElements.isRefundable = value;
+  filterFlightsBasedOnStops(value: number[]) {
+    this.filteringElements.stops = value;
 
     this.filtering();
   }
 
-  filterFlightsBasedOnStops(value: number[]) {
-    this.filteringElements.stops = value;
+  filterFlightsBasedOnRefundability(value: true | false | 'both') {
+    this.filteringElements.isRefundable = value;
 
     this.filtering();
   }
