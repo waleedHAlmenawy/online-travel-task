@@ -40,13 +40,14 @@
       </div>
     </div>
 
-    <button class="flight-card__info__button" (click)="onClickFlightDetails()">Flight Details</button>
+    <button class="flight-card__info__button" (click)="onClickFlightDetails()"> {{'buttons.flight-card' | translate}}
+    </button>
   </section>
 
   <!-- Right Section -->
 
   <section class="flight-card__price col-12 col-3-md">
-    <p>EGP <strong>{{card.price.toFixed(2)}}</strong></p>
-    <p>Per person</p>
+    <p>{{'messages.cur' | translate}} <strong>{{card.price.toFixed(2)}}</strong></p>
+    <p>{{'messages.flight-card' | translate}}</p>
   </section>
 </article>

@@ -1,6 +1,6 @@
 <div class="values">
-  <p>EGP <strong>{{minValue}}</strong></p>
-  <p>EGP <strong>{{maxValue}}</strong></p>
+  <p>{{'messages.cur' | translate}} <strong>{{minValue}}</strong></p>
+  <p>{{'messages.cur' | translate}} <strong>{{maxValue}}</strong></p>
 </div>
 
 <mat-slider [min]="min" [max]="max" color="accent" (change)="onChange()" step="10000">

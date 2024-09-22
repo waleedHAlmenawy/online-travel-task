@@ -1,5 +1,5 @@
 <mat-radio-group aria-label="Select an option" (change)="onChange($event)">
-  <mat-radio-button [value]="true">Refundable Flights</mat-radio-button>
-  <mat-radio-button [value]="false">Non Refundable Flights</mat-radio-button>
-  <mat-radio-button [value]="'both'" checked>Both</mat-radio-button>
+  <mat-radio-button [value]="true">{{'filter.refundable.option1' | translate}}</mat-radio-button>
+  <mat-radio-button [value]="false">{{'filter.refundable.option2' | translate}}</mat-radio-button>
+  <mat-radio-button [value]="'both'" checked>{{'filter.refundable.option3' | translate}}</mat-radio-button>
 </mat-radio-group>

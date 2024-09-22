@@ -1,3 +1,4 @@
+<app-lang-button />
 <img src="../../../assets/svgs/back-icon.svg" title="Back Icon" class="back-icon" (click)="onClickBack()" />
 
 <!-- RoundPixel Logo -->
@@ -117,7 +118,7 @@
   </article>
 
   <div class="container btn-wrapper">
-    <button class="btn" (click)="openModal()">Book Your Ticket</button>
+    <button class="btn" (click)="openModal()">{{'buttons.book' | translate}}</button>
   </div>
 </ng-container>
 

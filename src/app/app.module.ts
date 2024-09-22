@@ -36,6 +36,17 @@ import { AutocompleteComponent } from './components/flight-result/filter/input-f
 import { MessageModalComponent } from './bonus/selected-flight/message-modal/message-modal.component';
 import { NotFound404Component } from './components/not-found404/not-found404.component';
 
+/* Translation */
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import { LangButtonComponent } from './components/shared/lang-button/lang-button.component';
+
 const materialModules = [
   MatSidenavModule,
   MatExpansionModule,
@@ -67,6 +78,7 @@ const materialModules = [
     AutocompleteComponent,
     MessageModalComponent,
     NotFound404Component,
+    LangButtonComponent,
   ],
   imports: [
     materialModules,
@@ -76,8 +88,20 @@ const materialModules = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}

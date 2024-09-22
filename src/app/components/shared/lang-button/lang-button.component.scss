@@ -1,0 +1,17 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/colors";
+
+p {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  cursor: pointer;
+  color: $cyan;
+  font-size: map-get($fontSizes, "xxl");
+  font-weight: map-get($fontWeights, "bold");
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

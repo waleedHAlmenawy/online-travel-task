@@ -4,6 +4,8 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <app-lang-button />
+
     <img src="../../../assets/svgs/filter-icon.svg" title="Filter Icon" class="filter-icon" (click)="onClickFilter()" />
     <div class="container wrapper" *ngIf="getFlights().length">
       <app-flight-card *ngFor="let flight of getFlights();" [flight]="flight" />

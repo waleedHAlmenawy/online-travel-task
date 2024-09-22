@@ -1,0 +1,39 @@
+{
+  "filter": {
+    "title": "Filter By:",
+    "airlines": "Airlines",
+    "Price": "Price",
+    "stops": {
+      "title": "Stops",
+      "option1": "Direct",
+      "option2": "1 Stop"
+    },
+    "refundable": {
+      "title": "Refundable",
+      "option1": "Refundable Flights",
+      "option2": "Non Refundable Flights",
+      "option3": "Both"
+    }
+  },
+  "messages": {
+    "flight-card": "Per Person",
+    "cur": "EGP",
+    "dialog": {
+      "1": "Congratulations 🥳, you are not a ",
+      "2": "tree ",
+      "3": "anymore",
+      "4": "Go Home"
+    }
+  },
+  "buttons": {
+    "book": "Book Your Ticken",
+    "home": "Search Your Flights",
+    "flight-card": "Flight Details"
+  },
+  "notes": {
+    "title": "note",
+    "note1": "The add-on service charges, convenience fee, and the discount you have received using a coupon code are non-refundable.",
+    "note2": "Airlines stop accepting cancellation/change requests 4 - 72 hours before flight departure, depending on the airline. The airline fee is based on an automated interpretation of airline fare rules. Rehlat doesn't guarantee the accuracy of this information.",
+    "note3": "The change/cancellation fee may also vary based on fluctuations in currency conversion rates. For the exact cancellation/change fee, please call us at our customer care number."
+  }
+}
