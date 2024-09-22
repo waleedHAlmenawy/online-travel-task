@@ -5,6 +5,28 @@
   margin-top: 50px;
 }
 
+.empty-list-wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: map-get($breakpoints, "md")) {
+    img {
+      width: 50%;
+    }
+  }
+
+  background-color: #e5e5f7;
+  background: repeating-linear-gradient(
+    45deg,
+    $cyan,
+    $cyan 1px,
+    $white 1px,
+    $white 25px
+  );
+}
+
 .filter-icon {
   top: 10px;
   left: 10px;

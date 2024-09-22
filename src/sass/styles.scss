@@ -92,6 +92,10 @@ $custom-theme: mat-light-theme(
   overflow: hidden;
 }
 
+.mat-sidenav-content {
+  padding: 0 !important;
+}
+
 @include angular-material-theme($custom-theme);
 
 * {

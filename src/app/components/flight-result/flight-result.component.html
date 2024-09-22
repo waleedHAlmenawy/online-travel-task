@@ -5,8 +5,12 @@
 
   <mat-sidenav-content>
     <img src="../../../assets/svgs/filter-icon.svg" title="Filter Icon" class="filter-icon" (click)="onClickFilter()" />
-    <div class="container wrapper">
+    <div class="container wrapper" *ngIf="getFlights().length">
       <app-flight-card *ngFor="let flight of getFlights();" [flight]="flight" />
+    </div>
+
+    <div class="empty-list-wrapper" *ngIf="!getFlights().length">
+      <img src="../../../assets/svgs/empty-list.svg" title="Empty List Vector" />
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
