@@ -58,5 +58,6 @@ export class FlightCardComponent implements OnInit {
 
   onClickFlightDetails() {
     this.router.navigate(['selected-flight', this.flight.sequenceNum]);
+    window.scroll({ top: 0, behavior: 'smooth' });
   }
 }
