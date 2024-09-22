@@ -31,6 +31,7 @@ import { TimeFormatPipe } from './pipes/time-format.pipe';
 import { DurationPipe } from './pipes/duration.pipe';
 import { AutocompleteComponent } from './components/flight-result/filter/input-fileds/autocomplete/autocomplete.component';
 import { MessageModalComponent } from './bonus/selected-flight/message-modal/message-modal.component';
+import { NotFound404Component } from './components/not-found404/not-found404.component';
 
 const materialModules = [
   MatSidenavModule,
@@ -63,6 +64,7 @@ const materialModules = [
     DurationPipe,
     AutocompleteComponent,
     MessageModalComponent,
+    NotFound404Component,
   ],
   imports: [
     materialModules,

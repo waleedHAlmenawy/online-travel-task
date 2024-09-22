@@ -1,0 +1,34 @@
+@import "../../../sass/variables";
+@import "../../../sass/colors";
+
+.home-icon {
+  top: 10px;
+  left: 10px;
+  position: fixed;
+  cursor: pointer;
+  background-color: $gray;
+  padding: 5px;
+  border-radius: 0 0 $base-radius;
+  transition: all 0.5s;
+  z-index: 1;
+}
+
+.home-icon:hover {
+  background-color: $cyan-dark;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-color: #e5e5f7;
+  background: repeating-linear-gradient(
+    45deg,
+    $cyan,
+    $cyan 1px,
+    $white 1px,
+    $white 25px
+  );
+}
