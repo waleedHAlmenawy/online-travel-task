@@ -6,10 +6,12 @@
 }
 
 .filter-icon {
+  top: 10px;
+  left: 10px;
   position: fixed;
   cursor: pointer;
   background-color: $gray;
-  padding: 10px;
+  padding: 5px;
   border-radius: 0 0 $base-radius;
   transition: all 0.5s;
 }
