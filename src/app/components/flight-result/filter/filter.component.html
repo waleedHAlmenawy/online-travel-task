@@ -1,9 +1,11 @@
 <aside class="filter">
-  <div class="filter__logo">
+  <div class="filter__logo" (click)="onClickLogo()">
     <img src="../../../../assets/svgs/logo.svg" title="logo" width="200" />
   </div>
 
   <h2>Filte<span>r</span> By:</h2>
+
+  <!-- Airlines Panal -->
 
   <mat-expansion-panel class="filter__airlines" expanded>
     <mat-expansion-panel-header>
@@ -17,6 +19,8 @@
     </div>
   </mat-expansion-panel>
 
+  <!-- Price Panal -->
+
   <mat-expansion-panel class="filter__price" expanded>
     <mat-expansion-panel-header>
       <mat-panel-title class="filter__price-title">
@@ -29,6 +33,8 @@
     </div>
   </mat-expansion-panel>
 
+  <!-- Stops Panal -->
+
   <mat-expansion-panel class="filter__airlines">
     <mat-expansion-panel-header>
       <mat-panel-title class="filter__airlines-title">
@@ -40,6 +46,8 @@
       <app-check-boxes />
     </div>
   </mat-expansion-panel>
+
+  <!-- Refundable Panal -->
 
   <mat-expansion-panel class="filter__refund">
     <mat-expansion-panel-header>

@@ -1,10 +1,14 @@
+/* Angular */
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { initialAirItinerary } from 'src/constants/airItinerary.initial';
-import { initialCard } from 'src/constants/card.initial';
+
+/* Models */
 import { IAirItinerary } from 'src/models/airItinerary.model';
 import { ICard } from 'src/models/card.model';
-import { calculateTotalPrice } from 'src/utils/calcTotalPrice';
+
+/* Others */
+import { initialCard } from 'src/constants/card.initial';
+import { initialAirItinerary } from 'src/constants/airItinerary.initial';
 
 @Component({
   selector: 'app-flight-card',
@@ -16,6 +20,12 @@ export class FlightCardComponent implements OnInit {
   card: ICard = initialCard;
 
   constructor(private router: Router) {}
+
+  /**
+   * Populates the card property with relevant flight card extracted from the provided flight object from the parent.
+   *
+   * If the flight includes stops, the arrival airport information is updated accordingly.
+   */
 
   ngOnInit(): void {
     const obj = this.flight.allJourney.flights[0];
@@ -41,6 +51,10 @@ export class FlightCardComponent implements OnInit {
         obj.flightDTO[0].arrivalTerminalAirport.airportCode;
     }
   }
+
+  /**
+   * Navigates to the flight details screen with the sequence number
+   */
 
   onClickFlightDetails() {
     this.router.navigate(['selected-flight', this.flight.sequenceNum]);

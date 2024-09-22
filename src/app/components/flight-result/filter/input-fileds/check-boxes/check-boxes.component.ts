@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+/* Angular */
+import { Component } from '@angular/core';
+
+/* Service */
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -11,6 +14,13 @@ export class CheckBoxesComponent {
   checkedValues: number[] = [];
 
   constructor(private flightsService: FlightsService) {}
+
+  /**
+   * Updates the list of checked values based on checkbox interactions and filters flights accordingly.
+   *
+   * @param option - The identifier of the checkbox option.
+   * @param isChecked - The new checked state of the checkbox.
+   */
 
   onCheckboxChange(option: number, isChecked: boolean) {
     if (isChecked) {

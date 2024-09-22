@@ -1,29 +1,58 @@
+/* Angular */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { initialFilter } from 'src/constants/filter.initial';
-import { IAirItinerary } from 'src/models/airItinerary.model';
+
+/* Models */
 import { IData } from 'src/models/data.model';
 import { IFilter } from 'src/models/filter.model';
+
+/* Others */
+import { IAirItinerary } from 'src/models/airItinerary.model';
+import { initialFilter } from 'src/constants/filter.initial';
 import { calculateTotalPrice } from 'src/utils/calcTotalPrice';
 import { bubbleSort } from 'src/utils/sorting';
 
 @Injectable({
   providedIn: 'root',
 })
+
+/**
+ * Service to manage flight data and filtering logic.
+ *
+ * This service handles fetching flights, managing filter criteria, and filtering flights
+ * based on various user-defined parameters such as price, airline, stops, and refundability.
+ */
 export class FlightsService {
+  /* List of all the flights */
   flights: IAirItinerary[] = [];
+
+  /* List of filtered flights */
   filteredFlights: IAirItinerary[] = [];
+
+  /* Object contains filtering elements such as max & min price */
   filteringElements: IFilter = initialFilter;
 
+  /* All total prices for all the flights for max & min price filtering element */
   allPrices: number[] = [];
+
+  /* All airlines for airline filtering element */
   airlines: string[] = [];
 
+  /* URL to the JSON file that contains the flight data */
   jsonFlightsUrl = '../../assets/response.json';
 
+  /* Subject that notifies subscribers when flights have been loaded */
   private flightsLoaded = new Subject<void>();
 
   constructor(private http: HttpClient) {}
+
+  /**
+   * - Retrieves flights and airline data from JSON file.
+   * - Calculates total prices for flights and sorts them.
+   * - Sets filtered flights to include all flights initially.
+   * - Notifies subscribers when data is ready.
+   */
 
   getFlights() {
     this.http.get<IData>(this.jsonFlightsUrl).subscribe({
@@ -47,6 +76,13 @@ export class FlightsService {
     });
   }
 
+  /**
+   * Retrieves a flight by its sequence number.
+   *
+   * @param sequenceNum - The sequence number of the flight.
+   * @returns The flight object or `undefined` if not found.
+   */
+
   getFlightBySequenceNum(sequenceNum: number) {
     const flight = this.flights.find(
       (flight) => flight.sequenceNum === sequenceNum
@@ -55,15 +91,32 @@ export class FlightsService {
     return flight;
   }
 
+  /**
+   * Returns an observable that emits when the flights have been loaded.
+   *
+   * @returns An observable that emits when flight data is available.
+   */
+
   onFlightsLoaded(): Observable<void> {
     return this.flightsLoaded.asObservable();
   }
+
+  /**
+   * Resets the minimum and maximum price values for filtering.
+   */
 
   resetMinAndMaxValues() {
     this.filteringElements.maxValue =
       +this.allPrices.slice(-1)[0].toFixed(0) + 1000;
     this.filteringElements.minValue = +this.allPrices[0].toFixed(0) - 1000;
   }
+
+  /**
+   * Filters flights based on the current filtering elements (price, stops, airline, and refundability).
+   *
+   * - Filters out flights that do not meet the active filter criteria.
+   * - Scrolls the window to the top after filtering.
+   */
 
   filtering() {
     this.filteredFlights = this.flights.filter((flight) => {

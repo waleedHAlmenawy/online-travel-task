@@ -3,8 +3,7 @@ import { FlightsService } from './services/flights.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: `<router-outlet></router-outlet>`,
 })
 export class AppComponent implements OnInit {
   constructor(private flightsService: FlightsService) {}

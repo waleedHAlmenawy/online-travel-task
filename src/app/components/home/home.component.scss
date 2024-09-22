@@ -1,14 +1,36 @@
-.button-container {
-  height: 93vh;
+@import "../../../sass/variables";
+@import "../../../sass/colors";
 
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  img {
+    top: 50px;
+    position: absolute;
+  }
+}
+
+.button-container {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: #e5e5f7;
+  background: repeating-linear-gradient(
+    45deg,
+    $cyan,
+    $cyan 0.5px,
+    $white 0.5px,
+    $white 25px
+  );
 }
 
 .button-18 {
   align-items: center;
-  background-color: #0a66c2;
+  background-color: $cyan;
   border: 0;
   border-radius: 100px;
   box-sizing: border-box;
@@ -23,8 +45,8 @@
   font-weight: 600;
   justify-content: center;
   line-height: 20px;
-  min-height: 40px;
-  width: 50%;
+  min-height: 50px;
+  min-width: 300px;
   overflow: hidden;
   padding: 0px;
   padding-left: 20px;
@@ -41,13 +63,8 @@
 
 .button-18:hover,
 .button-18:focus {
-  background-color: #16437e;
+  background-color: $gray;
   color: #ffffff;
-}
-
-.button-18:active {
-  background: #09223b;
-  color: rgb(255, 255, 255, 0.7);
 }
 
 .button-18:disabled {

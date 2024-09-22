@@ -1,111 +1,126 @@
 <img src="../../../assets/svgs/back-icon.svg" title="Back Icon" class="back-icon" (click)="onClickBack()" />
 
+<!-- RoundPixel Logo -->
+
 <div class="main-logo">
   <img src="../../../assets/svgs/logo-big.svg" title="RoundPixel Logo" />
 </div>
 
-<article class="flight-details container">
-  <section class="flight-details__top row between">
-    <div class="flight-details__top__airline col-12 col-4-md ">
-      <img [src]="card.airlineLogo" title="Airline Logo" class="flight-details__top__airline__logo" />
-      <div class="flight-details__top__airline__data">
-        <p class="flight-details__top__airline__data__name">{{card.airlineName}}</p>
-        <p class="flight-details__top__airline__data__code">Airline Code: {{card.airlineCode}} </p>
-        <p class="flight-details__top__airline__data__flight-num"> Flight Number: {{card.flightNumber}}</p>
-        <p class=" flight-details__top__airline__data__refund">This flight is <strong>{{card.isRefundable ? "refundable"
-            : "not refundable"}}</strong></p>
-      </div>
-    </div>
+<!-- Flight Details Card -->
 
-    <div class="flight-details__top__flight-info col-12 col-6-md col-5-md">
-      <div class="flight-details__top__flight-info__timing">
-        <p class="flight-details__top__flight-info__timing__date">{{ card.deptDate | date: 'EEE, d MMM' }}</p>
-        <p class="flight-details__top__flight-info__timing__time">{{card.departureAirportCode + " " + (card.deptDate |
-          timeFormat)}}</p>
-        <p class="flight-details__top__flight-info__timing__airline">{{card.departureAirportName}}</p>
+<ng-container *ngIf="!isNotFound">
+  <article class="flight-details container">
+    <!-- First Section -->
+
+    <section class="flight-details__top row between">
+      <div class="flight-details__top__airline col-12 col-4-md ">
+        <img [src]="card.airlineLogo" title="Airline Logo" class="flight-details__top__airline__logo" />
+        <div class="flight-details__top__airline__data">
+          <p class="flight-details__top__airline__data__name">{{card.airlineName}}</p>
+          <p class="flight-details__top__airline__data__code">Airline Code: {{card.airlineCode}} </p>
+          <p class="flight-details__top__airline__data__flight-num"> Flight Number: {{card.flightNumber}}</p>
+          <p class=" flight-details__top__airline__data__refund">This flight is <strong>{{card.isRefundable ?
+              "refundable"
+              : "not refundable"}}</strong></p>
+        </div>
       </div>
 
-      <div class="flight-details__top__flight-info__plane">
-        <p>EGP <strong>{{card.price.toFixed(2)}}</strong></p>
-        <p>Per person</p>
-        <img src="../../../assets/svgs/plane-2.svg" title="Plane Logo" width="40"
-          class="flight-details__top__flight-info__plane" />
-      </div>
+      <div class="flight-details__top__flight-info col-12 col-6-md col-5-md">
+        <div class="flight-details__top__flight-info__timing">
+          <p class="flight-details__top__flight-info__timing__date">{{ card.deptDate | date: 'EEE, d MMM' }}</p>
+          <p class="flight-details__top__flight-info__timing__time">{{card.departureAirportCode + " " + (card.deptDate |
+            timeFormat)}}</p>
+          <p class="flight-details__top__flight-info__timing__airline">{{card.departureAirportName}}</p>
+        </div>
 
-      <div class="flight-details__top__flight-info__timing">
-        <p class="flight-details__top__flight-info__timing__date-rev">{{ card.arrivalDate | date: 'EEE, d MMM' }}</p>
-        <p class="flight-details__top__flight-info__timing__time-rev">{{card.arrivalAirportCode + " " +
-          (card.arrivalDate
-          |
-          timeFormat)}}</p>
-        <p class="flight-details__top__flight-info__timing__airline-rev">{{card.arrivalAirportName}}</p>
-      </div>
-    </div>
-  </section>
+        <div class="flight-details__top__flight-info__plane">
+          <p>EGP <strong>{{card.price.toFixed(2)}}</strong></p>
+          <p>Per person</p>
+          <img src="../../../assets/svgs/plane-2.svg" title="Plane Logo" width="40"
+            class="flight-details__top__flight-info__plane" />
+        </div>
 
-  <div class="flight-details__divider"></div>
-
-  <section class="flight-details__bottom row between gap-5">
-    <div class="flight-details__bottom__dest col-12 col-4-md col-3-lg">
-      <div class="flight-details__bottom__dest__times">
-        <div class="flight-details__bottom__dest__times__container">
-          <div class="flight-details__bottom__dest__times__container__time">{{card.deptDate
+        <div class="flight-details__top__flight-info__timing">
+          <p class="flight-details__top__flight-info__timing__date-rev">{{ card.arrivalDate | date: 'EEE, d MMM' }}</p>
+          <p class="flight-details__top__flight-info__timing__time-rev">{{card.arrivalAirportCode + " " +
+            (card.arrivalDate
             |
-            timeFormat}}</div>
-          <div class="flight-details__bottom__dest__times__container__code">{{card.departureAirportCode}}</div>
+            timeFormat)}}</p>
+          <p class="flight-details__top__flight-info__timing__airline-rev">{{card.arrivalAirportName}}</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="flight-details__divider"></div>
+
+    <!-- Last Section -->
+
+    <section class="flight-details__bottom row between gap-5">
+      <div class="flight-details__bottom__dest col-12 col-4-md col-3-lg">
+        <div class="flight-details__bottom__dest__times">
+          <div class="flight-details__bottom__dest__times__container">
+            <div class="flight-details__bottom__dest__times__container__time">{{card.deptDate
+              |
+              timeFormat}}</div>
+            <div class="flight-details__bottom__dest__times__container__code">{{card.departureAirportCode}}</div>
+          </div>
+
+          <div class="flight-details__bottom__dest__times__duration">
+            <img src="../../../assets/svgs/time.svg" title="Time Icon"
+              class="flight-details__bottom__dest__times__duration__icon" />
+            <p class="flight-details__bottom__dest__times__duration__time">{{ card.deptDate | duration:
+              card.arrivalDate }}</p>
+          </div>
+
+          <div class="flight-details__bottom__dest__times__container">
+            <div class="flight-details__bottom__dest__times__container__time">{{card.arrivalDate
+              |
+              timeFormat}}</div>
+            <div class="flight-details__bottom__dest__times__container__code">{{card.arrivalAirportCode}}</div>
+          </div>
         </div>
 
-        <div class="flight-details__bottom__dest__times__duration">
-          <img src="../../../assets/svgs/time.svg" title="Time Icon"
-            class="flight-details__bottom__dest__times__duration__icon" />
-          <p class="flight-details__bottom__dest__times__duration__time">{{ card.deptDate | duration:
-            card.arrivalDate }}</p>
+        <div class="flight-details__bottom__dest__time-line">
+          <div class="flight-details__bottom__dest__time-line__circle"></div>
+          <div class="flight-details__bottom__dest__time-line__line"></div>
+          <img src="../../../assets/svgs/plane-3.svg" title="Plane Logo"
+            class="flight-details__bottom__dest__time-line__plane" />
+          <div class="flight-details__bottom__dest__time-line__line"></div>
+          <div class="flight-details__bottom__dest__time-line__circle"></div>
         </div>
 
-        <div class="flight-details__bottom__dest__times__container">
-          <div class="flight-details__bottom__dest__times__container__time">{{card.arrivalDate
-            |
-            timeFormat}}</div>
-          <div class="flight-details__bottom__dest__times__container__code">{{card.arrivalAirportCode}}</div>
+        <div class="flight-details__bottom__dest__airports">
+          <p class="flight-details__bottom__dest__airports__airport-name">{{card.departureAirportName}}</p>
+          <div class="flight-details__bottom__dest__airports__info">
+            <p class="flight-details__bottom__dest__airports__info__class">{{card.cabinClass}}</p>
+            <p class="flight-details__bottom__dest__airports__info__line"></p>
+            <p class="flight-details__bottom__dest__airports__info__flight-num">{{card.flightNumber}}</p>
+          </div>
+          <p class="flight-details__bottom__dest__airports__airport-name">{{card.arrivalAirportName}}</p>
         </div>
       </div>
 
-      <div class="flight-details__bottom__dest__time-line">
-        <div class="flight-details__bottom__dest__time-line__circle"></div>
-        <div class="flight-details__bottom__dest__time-line__line"></div>
-        <img src="../../../assets/svgs/plane-3.svg" title="Plane Logo"
-          class="flight-details__bottom__dest__time-line__plane" />
-        <div class="flight-details__bottom__dest__time-line__line"></div>
-        <div class="flight-details__bottom__dest__time-line__circle"></div>
+      <div class="flight-details__bottom__note col-12 col-7-md col-8-lg">
+        <p class="flight-details__bottom__note__title">Note:</p>
+        <ul class="flight-details__bottom__note__list">
+          <li>The add-on service charges, convenience fee, and the
+            discount you have received using a coupon code are non-refundable.</li>
+          <li>Airlines stop accepting cancellation/change requests 4
+            - 72 hours before flight departure, depending on the airline. The airline fee is based on an automated
+            interpretation of airline fare rules. Rehlat doesn't guarantee the accuracy of this information.</li>
+          <li>The change/cancellation fee may also vary based on
+            fluctuations in currency conversion rates. For the exact cancellation/change fee, please call us at our
+            customer care number. </li>
+        </ul>
       </div>
+    </section>
+  </article>
 
-      <div class="flight-details__bottom__dest__airports">
-        <p class="flight-details__bottom__dest__airports__airport-name">{{card.departureAirportName}}</p>
-        <div class="flight-details__bottom__dest__airports__info">
-          <p class="flight-details__bottom__dest__airports__info__class">{{card.cabinClass}}</p>
-          <p class="flight-details__bottom__dest__airports__info__line"></p>
-          <p class="flight-details__bottom__dest__airports__info__flight-num">{{card.flightNumber}}</p>
-        </div>
-        <p class="flight-details__bottom__dest__airports__airport-name">{{card.arrivalAirportName}}</p>
-      </div>
-    </div>
+  <div class="container btn-wrapper">
+    <button class="btn" (click)="openModal()">Book Your Ticket</button>
+  </div>
+</ng-container>
 
-    <div class="flight-details__bottom__note col-12 col-7-md col-8-lg">
-      <p class="flight-details__bottom__note__title">Note:</p>
-      <ul class="flight-details__bottom__note__list">
-        <li>The add-on service charges, convenience fee, and the
-          discount you have received using a coupon code are non-refundable.</li>
-        <li>Airlines stop accepting cancellation/change requests 4
-          - 72 hours before flight departure, depending on the airline. The airline fee is based on an automated
-          interpretation of airline fare rules. Rehlat doesn't guarantee the accuracy of this information.</li>
-        <li>The change/cancellation fee may also vary based on
-          fluctuations in currency conversion rates. For the exact cancellation/change fee, please call us at our
-          customer care number. </li>
-      </ul>
-    </div>
-  </section>
-</article>
-
-<div class="container btn-wrapper">
-  <button class="btn" (click)="openModal()">Book Your Ticket</button>
+<div class="empty-list-wrapper" *ngIf="isNotFound">
+  <img src="../../../assets/svgs/empty-list.svg" title="Empty List Vector" />
 </div>

@@ -1,3 +1,5 @@
+/* Modules */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,13 +19,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 
+/* Components */
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FlightResultComponent } from './components/flight-result/flight-result.component';
 import { SelectedFlightComponent } from './bonus/selected-flight/selected-flight.component';
 import { FilterComponent } from './components/flight-result/filter/filter.component';
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SliderComponent } from './components/flight-result/filter/input-fileds/slider/slider.component';
 import { CheckBoxesComponent } from './components/flight-result/filter/input-fileds/check-boxes/check-boxes.component';
 import { RadioButtonsComponent } from './components/flight-result/filter/input-fileds/radio-buttons/radio-buttons.component';
@@ -56,7 +59,6 @@ const materialModules = [
     SelectedFlightComponent,
     FilterComponent,
     FlightCardComponent,
-    NavbarComponent,
     SliderComponent,
     CheckBoxesComponent,
     RadioButtonsComponent,

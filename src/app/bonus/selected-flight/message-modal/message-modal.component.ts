@@ -1,3 +1,4 @@
+/* Angular */
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MessageModalComponent {
   constructor(private router: Router) {}
+
   goHome() {
     this.router.navigate(['/']);
   }

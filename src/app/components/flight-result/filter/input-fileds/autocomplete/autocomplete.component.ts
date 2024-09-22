@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+/* Angular */
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
+/* Service */
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -8,7 +11,6 @@ import { FlightsService } from 'src/app/services/flights.service';
   styleUrls: ['./autocomplete.component.scss'],
 })
 export class AutocompleteComponent {
-  myControl = new FormControl('');
   airlines: string[] = [];
   inputValue: string = '';
 
@@ -24,6 +26,16 @@ export class AutocompleteComponent {
     }
   }
 
+  /**
+   * Filters airlines based on the input
+   *
+   * When the airline property contains data, a drop down menu will be shown
+   *
+   * - If the input is empty, the airline property is cleared and a default flight filter is applied.
+   *
+   * @param e - The event that holds changed data
+   */
+
   onChange(e: any) {
     if (e.target.value) {
       this.airlines = this.flightsService.airlines.filter((airline) =>
@@ -34,6 +46,14 @@ export class AutocompleteComponent {
       this.flightsService.filterFlightsBasedOnAirline(null);
     }
   }
+
+  /**
+   * Filters the flight cards based on the airline
+   *
+   * It also cleared the airline property
+   *
+   * @param airline - The selected airline from the drop down
+   */
 
   onSelect(airline: string) {
     this.inputValue = airline;

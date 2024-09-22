@@ -1,6 +1,19 @@
 @import "../../../sass/variables";
 @import "../../../sass/colors";
 
+.empty-list-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 7%;
+  @media (max-width: map-get($breakpoints, "md")) {
+    img {
+      width: 70%;
+    }
+  }
+}
+
 .back-icon {
   top: 10px;
   left: 10px;
