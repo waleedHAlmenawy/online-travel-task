@@ -15,6 +15,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -29,6 +30,7 @@ import { RadioButtonsComponent } from './components/flight-result/filter/input-f
 import { TimeFormatPipe } from './pipes/time-format.pipe';
 import { DurationPipe } from './pipes/duration.pipe';
 import { AutocompleteComponent } from './components/flight-result/filter/input-fileds/autocomplete/autocomplete.component';
+import { MessageModalComponent } from './bonus/selected-flight/message-modal/message-modal.component';
 
 const materialModules = [
   MatSidenavModule,
@@ -42,6 +44,7 @@ const materialModules = [
   MatCheckboxModule,
   MatRadioModule,
   MatAutocompleteModule,
+  MatDialogModule,
 ];
 
 @NgModule({
@@ -59,6 +62,7 @@ const materialModules = [
     TimeFormatPipe,
     DurationPipe,
     AutocompleteComponent,
+    MessageModalComponent,
   ],
   imports: [
     materialModules,
