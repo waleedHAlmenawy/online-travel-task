@@ -8,7 +8,7 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'flight-results', component: FlightResultComponent },
-  { path: 'selected-flight/:id', component: SelectedFlightComponent },
+  { path: 'selected-flight/:sequenceNum', component: SelectedFlightComponent },
   { path: '**', component: NotFound404Component },
 ];
 

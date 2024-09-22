@@ -6,7 +6,11 @@ export interface ICard {
   deptDate: string;
   arrivalDate: string;
   departureAirportCode: string;
+  departureAirportName?: string;
   arrivalAirportCode: string;
+  arrivalAirportName?: string;
   stops: number;
   price: number;
+  isRefundable?: boolean;
+  cabinClass?: string;
 }

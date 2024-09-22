@@ -48,6 +48,14 @@ export class FlightsService {
     });
   }
 
+  getFlightBySequenceNum(sequenceNum: number) {
+    const flight = this.flights.find(
+      (flight) => flight.sequenceNum === sequenceNum
+    );
+
+    return flight;
+  }
+
   onFlightsLoaded(): Observable<void> {
     return this.flightsLoaded.asObservable();
   }

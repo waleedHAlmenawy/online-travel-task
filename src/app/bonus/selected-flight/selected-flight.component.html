@@ -6,30 +6,39 @@
 
 <article class="flight-details container">
   <section class="flight-details__top row between">
-    <div class="flight-details__top__airline col-12 col-5-md ">
-      <img src="../../../assets/images/QR.png" title="Airline Logo" class="flight-details__top__airline__logo" />
+    <div class="flight-details__top__airline col-12 col-4-md ">
+      <img [src]="card.airlineLogo" title="Airline Logo" class="flight-details__top__airline__logo" />
       <div class="flight-details__top__airline__data">
-        <p class="flight-details__top__airline__data__name">Qatar Airways (Q.C.S.C.)</p>
-        <p class="flight-details__top__airline__data__code">Airline Code: QR </p>
-        <p class="flight-details__top__airline__data__flight-num"> Flight Number: 1302</p>
-        <p class=" flight-details__top__airline__data__refund">This flight is <strong>refundable</strong></p>
+        <p class="flight-details__top__airline__data__name">{{card.airlineName}}</p>
+        <p class="flight-details__top__airline__data__code">Airline Code: {{card.airlineCode}} </p>
+        <p class="flight-details__top__airline__data__flight-num"> Flight Number: {{card.flightNumber}}</p>
+        <p class=" flight-details__top__airline__data__refund">This flight is <strong>{{card.isRefundable ? "refundable"
+            : "not refundable"}}</strong></p>
       </div>
     </div>
 
     <div class="flight-details__top__flight-info col-12 col-6-md col-5-md">
       <div class="flight-details__top__flight-info__timing">
-        <p class="flight-details__top__flight-info__timing__date">Thu, 24 Oct</p>
-        <p class="flight-details__top__flight-info__timing__time">JED06:45</p>
-        <p class="flight-details__top__flight-info__timing__airline">King Abdulaziz International Airport</p>
+        <p class="flight-details__top__flight-info__timing__date">{{ card.deptDate | date: 'EEE, d MMM' }}</p>
+        <p class="flight-details__top__flight-info__timing__time">{{card.departureAirportCode + " " + (card.deptDate |
+          timeFormat)}}</p>
+        <p class="flight-details__top__flight-info__timing__airline">{{card.departureAirportName}}</p>
       </div>
 
-      <img src="../../../assets/svgs/plane-2.svg" title="Plane Logo" width="40"
-        class="flight-details__top__flight-info__plane" />
+      <div class="flight-details__top__flight-info__plane">
+        <p>EGP <strong>{{card.price.toFixed(2)}}</strong></p>
+        <p>Per person</p>
+        <img src="../../../assets/svgs/plane-2.svg" title="Plane Logo" width="40"
+          class="flight-details__top__flight-info__plane" />
+      </div>
 
       <div class="flight-details__top__flight-info__timing">
-        <p class="flight-details__top__flight-info__timing__date-rev">Thu, 24 Oct</p>
-        <p class="flight-details__top__flight-info__timing__time-rev">JED06:45</p>
-        <p class="flight-details__top__flight-info__timing__airline-rev">King Abdulaziz International Airport</p>
+        <p class="flight-details__top__flight-info__timing__date-rev">{{ card.arrivalDate | date: 'EEE, d MMM' }}</p>
+        <p class="flight-details__top__flight-info__timing__time-rev">{{card.arrivalAirportCode + " " +
+          (card.arrivalDate
+          |
+          timeFormat)}}</p>
+        <p class="flight-details__top__flight-info__timing__airline-rev">{{card.arrivalAirportName}}</p>
       </div>
     </div>
   </section>
@@ -40,19 +49,24 @@
     <div class="flight-details__bottom__dest col-12 col-4-md col-3-lg">
       <div class="flight-details__bottom__dest__times">
         <div class="flight-details__bottom__dest__times__container">
-          <div class="flight-details__bottom__dest__times__container__time">20:55</div>
-          <div class="flight-details__bottom__dest__times__container__code">CAI</div>
+          <div class="flight-details__bottom__dest__times__container__time">{{card.deptDate
+            |
+            timeFormat}}</div>
+          <div class="flight-details__bottom__dest__times__container__code">{{card.departureAirportCode}}</div>
         </div>
 
         <div class="flight-details__bottom__dest__times__duration">
           <img src="../../../assets/svgs/time.svg" title="Time Icon"
             class="flight-details__bottom__dest__times__duration__icon" />
-          <p class="flight-details__bottom__dest__times__duration__time">06h 55m</p>
+          <p class="flight-details__bottom__dest__times__duration__time">{{ card.deptDate | duration:
+            card.arrivalDate }}</p>
         </div>
 
         <div class="flight-details__bottom__dest__times__container">
-          <div class="flight-details__bottom__dest__times__container__time">20:55</div>
-          <div class="flight-details__bottom__dest__times__container__code">CAI</div>
+          <div class="flight-details__bottom__dest__times__container__time">{{card.arrivalDate
+            |
+            timeFormat}}</div>
+          <div class="flight-details__bottom__dest__times__container__code">{{card.arrivalAirportCode}}</div>
         </div>
       </div>
 
@@ -66,13 +80,13 @@
       </div>
 
       <div class="flight-details__bottom__dest__airports">
-        <p class="flight-details__bottom__dest__airports__airport-name">Cairo Airport</p>
+        <p class="flight-details__bottom__dest__airports__airport-name">{{card.departureAirportName}}</p>
         <div class="flight-details__bottom__dest__airports__info">
-          <p class="flight-details__bottom__dest__airports__info__class">Economy</p>
+          <p class="flight-details__bottom__dest__airports__info__class">{{card.cabinClass}}</p>
           <p class="flight-details__bottom__dest__airports__info__line"></p>
-          <p class="flight-details__bottom__dest__airports__info__flight-num">1302</p>
+          <p class="flight-details__bottom__dest__airports__info__flight-num">{{card.flightNumber}}</p>
         </div>
-        <p class="flight-details__bottom__dest__airports__airport-name">Cairo Airport</p>
+        <p class="flight-details__bottom__dest__airports__airport-name">{{card.arrivalAirportName}}</p>
       </div>
     </div>
 

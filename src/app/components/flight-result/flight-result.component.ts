@@ -7,14 +7,10 @@ import { IAirItinerary } from 'src/models/airItinerary.model';
   templateUrl: './flight-result.component.html',
   styleUrls: ['./flight-result.component.scss'],
 })
-export class FlightResultComponent implements OnInit {
+export class FlightResultComponent {
   isSidenavOpened = false;
 
   constructor(private flightsService: FlightsService) {}
-
-  ngOnInit(): void {
-    this.flightsService.getFlights();
-  }
 
   getFlights() {
     return this.flightsService.filteredFlights;
