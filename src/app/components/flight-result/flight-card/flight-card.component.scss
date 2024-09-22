@@ -30,29 +30,33 @@
         }
 
         &-info h3 {
-          font-size: map-get($fontSizes, "sm");
+          font-size: map-get($fontSizes, "md");
           font-weight: map-get($fontWeights, "medium");
           margin-bottom: 10px;
         }
 
         &-info p {
-          font-size: map-get($fontSizes, "sm");
+          font-size: map-get($fontSizes, "md");
           color: $gray;
         }
       }
 
       &__details {
-        min-width: 190px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 40%;
+        min-width: 200px;
 
         &__times {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          font-size: map-get($fontSizes, "sm");
+          font-size: map-get($fontSizes, "md");
 
           &-duration {
             color: $gray;
-            font-size: map-get($fontSizes, "xs");
+            font-size: map-get($fontSizes, "sm");
 
             img {
               margin-right: 2.27px;
@@ -88,11 +92,11 @@
           display: flex;
           justify-content: space-between;
           margin-inline: 0.4rem;
-          font-size: map-get($fontSizes, "sm");
+          font-size: map-get($fontSizes, "md");
 
           &-stop {
             color: $gray;
-            font-size: map-get($fontSizes, "xs");
+            font-size: map-get($fontSizes, "sm");
           }
         }
       }
@@ -145,6 +149,8 @@
     text-align: center;
     font-size: 1.2rem;
     color: $black;
+
+    margin-block: 20px;
 
     strong {
       font-size: 1.5rem;
