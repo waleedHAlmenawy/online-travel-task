@@ -1,0 +1,226 @@
+@import "../../../sass/variables";
+@import "../../../sass/colors";
+
+.main-logo {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 60px;
+}
+
+.flight-details {
+  border: 1px solid $cyan;
+
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  &__top {
+    &__airline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+
+      &__logo {
+        width: 115px;
+      }
+
+      &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        color: $gray;
+        &__name {
+          color: $black;
+          font-size: map-get($fontSizes, "lg");
+          font-weight: map-get($fontWeights, "bold");
+        }
+      }
+    }
+    &__flight-info {
+      display: flex;
+      justify-content: space-around;
+
+      @media (max-width: map-get($breakpoints, "md")) {
+        margin-top: 40px;
+      }
+
+      &__timing {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        &__date,
+        &__date-rev {
+          color: $gray;
+          font-size: map-get($fontSizes, "sm");
+        }
+        &__time,
+        &__time-rev {
+          color: $black;
+          font-size: map-get($fontSizes, "lg");
+          font-weight: map-get($fontWeights, "bold");
+        }
+        &__airline,
+        &__airline-rev {
+          color: $gray;
+          max-width: 150px;
+        }
+
+        &__date-rev,
+        &__time-rev,
+        &__airline-rev {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    margin-block: 40px;
+    background-color: $cyan;
+  }
+
+  &__bottom {
+    &__dest {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+
+      @media (max-width: map-get($breakpoints, "md")) {
+        border-bottom: 1px solid $cyan;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+      }
+      &__times {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        &__container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          &__time {
+            color: $black;
+          }
+          &__code {
+            color: $gray;
+          }
+        }
+
+        &__duration {
+          display: flex;
+          gap: 2px;
+          color: $gray;
+          font-size: map-get($fontSizes, "sm");
+        }
+      }
+
+      &__time-line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__circle {
+          width: 10px;
+          height: 10px;
+
+          border-radius: 50px;
+          border: 1px solid $gray;
+        }
+        &__plane {
+          padding: 5px;
+        }
+        &__line {
+          width: 1px;
+          min-height: 50px;
+
+          background-color: $cyan;
+        }
+      }
+
+      &__airports {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $black;
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          color: $gray;
+          font-size: map-get($fontSizes, "sm");
+
+          &__line {
+            height: 1px;
+            width: 100%;
+            background-color: $cyan;
+          }
+        }
+      }
+    }
+
+    height: 100%;
+    &__note {
+      font-size: map-get($fontSizes, "sm");
+      color: $gray;
+
+      &__list {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+.btn-wrapper {
+  padding: 0;
+  margin-bottom: 40px;
+
+  .btn {
+    align-items: center;
+    background-color: $cyan;
+    color: $white;
+    border: 0;
+    border-radius: $base-radius-small;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: map-get($fontSizes, "md");
+    font-weight: map-get($fontWeights, "bold");
+    justify-content: center;
+
+    line-height: 20px;
+    min-height: 40px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+      box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+      color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    vertical-align: middle;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background-color: $cyan-dark;
+    color: #ffffff;
+  }
+
+  .btn:active {
+    background: $gray;
+    color: rgb(255, 255, 255, 0.7);
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.3);
+  }
+}

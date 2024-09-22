@@ -29,4 +29,8 @@ mat-sidenav-container {
     width: 300px;
     background-color: $gray;
   }
+
+  mat-sidenav-content {
+    min-height: 100vh;
+  }
 }

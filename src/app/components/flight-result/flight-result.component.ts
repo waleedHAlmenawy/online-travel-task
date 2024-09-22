@@ -8,7 +8,7 @@ import { IAirItinerary } from 'src/models/airItinerary.model';
   styleUrls: ['./flight-result.component.scss'],
 })
 export class FlightResultComponent implements OnInit {
-  isSidenavOpened = true;
+  isSidenavOpened = false;
 
   constructor(private flightsService: FlightsService) {}
 
