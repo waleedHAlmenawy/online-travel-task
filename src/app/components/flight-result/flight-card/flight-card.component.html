@@ -4,8 +4,8 @@
   <!-- Left Section -->
 
   <section class="flight-card__info col-12 col-9-md">
-    <div class="flight-card__info__data">
-      <div class="flight-card__info__data__airline">
+    <div class="flight-card__info__data row between">
+      <div class="flight-card__info__data__airline col-12 col-3-md col-2-lg">
         <img [src]="card.airlineLogo" alt="Airline Logo" class="flight-card__info__data__airline-logo" />
         <div class="flight-card__info__data__airline-info">
           <h3>{{card.airlineName}}</h3>
@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <div class="flight-card__info__data__details">
+      <div class="flight-card__info__data__details col-12 col-6-md">
         <div class="flight-card__info__data__details__times">
           <p class="flight-card__info__data__details__times-time">{{ card.deptDate | timeFormat }}</p>
           <div class="flight-card__info__data__details__times-duration">

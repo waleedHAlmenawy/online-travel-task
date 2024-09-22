@@ -15,6 +15,7 @@
       border-right: none;
       border-top: 1px solid $cyan;
     }
+
     &__data {
       display: flex;
       justify-content: space-between;
@@ -23,6 +24,7 @@
       &__airline {
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
         &-logo {
           width: 50px;
@@ -45,8 +47,11 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        width: 40%;
         min-width: 200px;
+
+        @media (max-width: map-get($breakpoints, "md")) {
+          margin-top: 20px;
+        }
 
         &__times {
           display: flex;
