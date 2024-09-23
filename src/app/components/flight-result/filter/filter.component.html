@@ -3,17 +3,15 @@
     <img src="../../../../assets/svgs/logo.svg" title="logo" width="200" />
   </div>
 
-  <h2>{{'filter.title' | translate}}</h2>
+  <h2 [innerHTML]="('filter.title' | translate)"></h2>
 
   <!-- Airlines Panal -->
 
   <mat-expansion-panel class="filter__airlines" expanded>
     <mat-expansion-panel-header>
-      <mat-panel-title class="filter__airlines-title">
-        {{'filter.airlines' | translate}}
+      <mat-panel-title class="filter__airlines-title" [innerHTML]="('filter.airlines' | translate)">
       </mat-panel-title>
     </mat-expansion-panel-header>
-
     <div class="filter__airlines-content">
       <app-autocomplete />
     </div>
@@ -23,9 +21,7 @@
 
   <mat-expansion-panel class="filter__price" expanded>
     <mat-expansion-panel-header>
-      <mat-panel-title class="filter__price-title">
-        {{'filter.Price' | translate}}
-
+      <mat-panel-title class="filter__price-title" [innerHTML]="('filter.Price' | translate)">
       </mat-panel-title>
     </mat-expansion-panel-header>
 
@@ -38,9 +34,7 @@
 
   <mat-expansion-panel class="filter__airlines">
     <mat-expansion-panel-header>
-      <mat-panel-title class="filter__airlines-title">
-        {{'filter.stops.title' | translate}}
-
+      <mat-panel-title class="filter__airlines-title" [innerHTML]="('filter.stops.title' | translate)">
       </mat-panel-title>
     </mat-expansion-panel-header>
 
@@ -53,8 +47,7 @@
 
   <mat-expansion-panel class="filter__refund">
     <mat-expansion-panel-header>
-      <mat-panel-title class="filter__refund-title">
-        {{'filter.refundable.title' | translate}}
+      <mat-panel-title class="filter__refund-title" [innerHTML]="('filter.refundable.title' | translate)">
       </mat-panel-title>
     </mat-expansion-panel-header>
 

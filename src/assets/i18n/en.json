@@ -1,15 +1,16 @@
 {
   "filter": {
-    "title": "Filter By:",
-    "airlines": "Airlines",
-    "Price": "Price",
+    "title": "Filte<span class='highlight'>r</span> By:",
+    "airlines": "<span class='highlight'>A</span>irlines",
+    "placeholder": "Airlines",
+    "Price": "Pr<span class='highlight'>i</span>ce",
     "stops": {
-      "title": "Stops",
+      "title": "Stop<span class='highlight'>s</span>",
       "option1": "Direct",
       "option2": "1 Stop"
     },
     "refundable": {
-      "title": "Refundable",
+      "title": "Refundabl<span class='highlight'>e</span>",
       "option1": "Refundable Flights",
       "option2": "Non Refundable Flights",
       "option3": "Both"

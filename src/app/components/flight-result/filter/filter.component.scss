@@ -6,10 +6,6 @@
   font-size: map-get($fontSizes, "lg");
 }
 
-span {
-  color: $cyan;
-}
-
 .filter {
   display: flex;
   flex-direction: column;
