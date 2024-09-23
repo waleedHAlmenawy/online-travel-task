@@ -1,11 +1,7 @@
 @import "../../../../sass/variables";
 @import "../../../../sass/colors";
 
-p {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-
+span {
   cursor: pointer;
   color: $cyan;
   font-size: map-get($fontSizes, "xxl");

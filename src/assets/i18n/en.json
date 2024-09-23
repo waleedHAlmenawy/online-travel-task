@@ -1,4 +1,5 @@
 {
+  "dir": "ltr",
   "filter": {
     "title": "Filte<span class='highlight'>r</span> By:",
     "airlines": "<span class='highlight'>A</span>irlines",
@@ -27,7 +28,7 @@
     }
   },
   "buttons": {
-    "book": "Book Your Ticken",
+    "book": "Book Your Ticket",
     "home": "Search Your Flights",
     "flight-card": "Flight Details"
   },

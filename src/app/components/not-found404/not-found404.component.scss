@@ -1,20 +1,14 @@
 @import "../../../sass/variables";
 @import "../../../sass/colors";
 
-.home-icon {
+.nav-icons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
   top: 10px;
   left: 10px;
-  position: fixed;
-  cursor: pointer;
-  background-color: $gray;
-  padding: 5px;
-  border-radius: 0 0 $base-radius;
-  transition: all 0.5s;
-  z-index: 1;
-}
 
-.home-icon:hover {
-  background-color: $cyan-dark;
+  width: calc(100% - 20px);
 }
 
 .wrapper {

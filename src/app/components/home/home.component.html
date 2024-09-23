@@ -1,11 +1,16 @@
-<app-lang-button />
+<div class="nav-icons" [dir]="'dir' | translate">
+  <span></span>
+  <app-lang-button />
+</div>
+
 
 <div class="logo">
   <img src="../../../assets/svgs/logo-big.svg" title="logo" />
 </div>
 
 <div class="button-container">
-  <button class="button-18" role="button" routerLink="/flight-results">{{'buttons.home' | translate}}</button>
+  <app-button [title]="'buttons.home' | translate"
+    [btnStyle]="{minWidth: '300px', minHeight: '50px', borderRadius: '100px'}" routerLink="/flight-results" />
 </div>
 
 <!--

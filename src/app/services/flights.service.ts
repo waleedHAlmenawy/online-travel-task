@@ -138,7 +138,7 @@ export class FlightsService {
 
       if (
         this.filteringElements.isRefundable !== 'both' &&
-        flight.isRefundable === this.filteringElements.isRefundable
+        flight.isRefundable !== this.filteringElements.isRefundable
       ) {
         return false;
       }

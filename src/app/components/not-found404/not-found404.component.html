@@ -1,4 +1,6 @@
-<img src="../../../assets/svgs/home-icon.svg" title="Home Icon" class="home-icon" (click)="onClickHome()" />
+<div class="nav-icons" [dir]="'dir' | translate">
+  <app-icon source="../../../assets/svgs/home-icon.svg" title="Home Icon" (iconClicked)="onClickHome()" />
+</div>
 
 <div class="wrapper">
   <img src="../../../assets/svgs/not-found-vector.svg" title="Not Found Vector" />

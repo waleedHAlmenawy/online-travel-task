@@ -9,6 +9,7 @@ import { ICard } from 'src/models/card.model';
 /* Others */
 import { initialCard } from 'src/constants/card.initial';
 import { initialAirItinerary } from 'src/constants/airItinerary.initial';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-flight-card',
@@ -19,7 +20,10 @@ export class FlightCardComponent implements OnInit {
   @Input() flight: IAirItinerary = initialAirItinerary;
   card: ICard = initialCard;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private translation: TranslationService
+  ) {}
 
   /**
    * Populates the card property with relevant flight card extracted from the provided flight object from the parent.
@@ -59,5 +63,9 @@ export class FlightCardComponent implements OnInit {
   onClickFlightDetails() {
     this.router.navigate(['selected-flight', this.flight.sequenceNum]);
     window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  getSelectedLang() {
+    return this.translation.lang;
   }
 }

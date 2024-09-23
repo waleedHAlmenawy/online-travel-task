@@ -46,6 +46,8 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { LangButtonComponent } from './components/shared/lang-button/lang-button.component';
+import { IconComponent } from './components/shared/icon/icon.component';
+import { ButtonComponent } from './components/shared/button/button.component';
 
 const materialModules = [
   MatSidenavModule,
@@ -79,6 +81,8 @@ const materialModules = [
     MessageModalComponent,
     NotFound404Component,
     LangButtonComponent,
+    IconComponent,
+    ButtonComponent,
   ],
   imports: [
     materialModules,

@@ -14,19 +14,14 @@
   }
 }
 
-.back-icon {
+.nav-icons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
   top: 10px;
   left: 10px;
-  position: fixed;
-  cursor: pointer;
-  background-color: $gray;
-  padding: 5px;
-  border-radius: 0 0 $base-radius;
-  transition: all 0.5s;
-}
 
-.back-icon:hover {
-  background-color: $cyan-dark;
+  width: calc(100% - 20px);
 }
 
 .main-logo {
@@ -227,45 +222,4 @@
 .btn-wrapper {
   padding: 0;
   margin-bottom: 40px;
-
-  .btn {
-    align-items: center;
-    background-color: $cyan;
-    color: $white;
-    border: 0;
-    border-radius: $base-radius-small;
-    cursor: pointer;
-    display: inline-flex;
-    font-size: map-get($fontSizes, "md");
-    font-weight: map-get($fontWeights, "bold");
-    justify-content: center;
-
-    line-height: 20px;
-    min-height: 40px;
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-    touch-action: manipulation;
-    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
-      box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
-      color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    vertical-align: middle;
-  }
-
-  .btn:hover,
-  .btn:focus {
-    background-color: $cyan-dark;
-    color: #ffffff;
-  }
-
-  .btn:active {
-    background: $gray;
-    color: rgb(255, 255, 255, 0.7);
-  }
-
-  .btn:disabled {
-    cursor: not-allowed;
-    background: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.3);
-  }
 }

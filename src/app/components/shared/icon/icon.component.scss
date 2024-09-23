@@ -1,0 +1,14 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/colors";
+
+.filter-icon {
+  cursor: pointer;
+  background-color: $gray;
+  padding: 5px;
+  border-radius: 0 0 $base-radius;
+  transition: all 0.5s;
+}
+
+.filter-icon:hover {
+  background-color: $cyan-dark;
+}

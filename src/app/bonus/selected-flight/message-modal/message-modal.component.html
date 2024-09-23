@@ -2,5 +2,6 @@
   <img src="../../../../assets/svgs/tree-icon.svg" title="Tree Icon" />
   <p>{{'messages.dialog.1' | translate}} <span>{{'messages.dialog.2' | translate}}</span> {{'messages.dialog.3' |
     translate}}</p>
-  <button class="btn" (click)="goHome()" mat-dialog-close>{{'messages.dialog.4' | translate}}</button>
+  <app-button [title]="'messages.dialog.4' | translate"
+    [btnStyle]="{width: '100%', minHeight: '40px', borderRadius: '5px'}" (buttonClicked)="goHome()" mat-dialog-close />
 </div>

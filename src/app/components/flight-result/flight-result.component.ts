@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 /* Services */
 import { FlightsService } from 'src/app/services/flights.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-flight-result',
@@ -12,7 +13,10 @@ import { FlightsService } from 'src/app/services/flights.service';
 export class FlightResultComponent implements OnInit {
   isSidenavOpened = false;
 
-  constructor(private flightsService: FlightsService) {}
+  constructor(
+    private flightsService: FlightsService,
+    private translation: TranslationService
+  ) {}
 
   /**
    * Resets the filtered flights to include all flights on initialization.
@@ -38,5 +42,9 @@ export class FlightResultComponent implements OnInit {
 
   onClickFilter() {
     this.isSidenavOpened = !this.isSidenavOpened;
+  }
+
+  getSelectedLang() {
+    return this.translation.lang;
   }
 }

@@ -1,5 +1,7 @@
-<app-lang-button />
-<img src="../../../assets/svgs/back-icon.svg" title="Back Icon" class="back-icon" (click)="onClickBack()" />
+<div class="nav-icons" [dir]="'dir' | translate">
+  <app-icon source="../../../assets/svgs/back-icon.svg" title="Back Icon" (iconClicked)="onClickBack()" />
+  <app-lang-button />
+</div>
 
 <!-- RoundPixel Logo -->
 
@@ -10,7 +12,7 @@
 <!-- Flight Details Card -->
 
 <ng-container *ngIf="!isNotFound">
-  <article class="flight-details container">
+  <article class="flight-details container" [dir]="'dir' | translate">
     <!-- First Section -->
 
     <section class="flight-details__top row between">
@@ -113,7 +115,8 @@
   </article>
 
   <div class="container btn-wrapper">
-    <button class="btn" (click)="openModal()">{{'buttons.book' | translate}}</button>
+    <app-button [title]="'buttons.book' | translate"
+      [btnStyle]="{width: '100%', minHeight: '40px', borderRadius: '5px'}" (buttonClicked)="openModal()" />
   </div>
 </ng-container>
 
