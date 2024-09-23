@@ -10,7 +10,7 @@ export class LangButtonComponent {
   constructor(private translationService: TranslationService) {}
 
   getLang() {
-    return this.translationService.lang;
+    return this.translationService.lang === 'en' ? 'ar' : 'en';
   }
 
   changeLang() {
